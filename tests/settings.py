@@ -1,4 +1,5 @@
 import os
+import tempfile
 
 
 DEBUG = True
@@ -27,8 +28,8 @@ TEMPLATES = [{
     'APP_DIRS': True,
 }]
 
-STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
+STATIC_ROOT = tempfile.mkdtemp()
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    STATIC_ROOT,
+    os.path.join(os.path.dirname(__file__), 'static'),
 )

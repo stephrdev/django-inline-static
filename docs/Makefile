@@ -20,7 +20,7 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 apidoc:
-	sphinx-apidoc --separate --force --module-first -H "django-inline-static"  -o api ../inline-static
+	sphinx-apidoc --separate --force --module-first -H "django-inline-static"  -o api ../inline_static
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html

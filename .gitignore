@@ -1,0 +1,17 @@
+*.py[cod]
+.DS_Store
+.coverage
+coverage.xml
+.tox
+env/
+docs/_build/
+.cache
+.pytest_cache
+*.egg
+*.egg-info
+htmlcov/
+dist/
+examples/example/web/
+build/
+junit-*.xml
+database.db

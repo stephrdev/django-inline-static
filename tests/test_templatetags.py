@@ -2,6 +2,7 @@ import distutils.dir_util
 from unittest import mock
 
 import pytest
+from django.core import management
 from django.utils.safestring import SafeText
 
 from inline_static.loader import load_staticfile
@@ -48,6 +49,13 @@ class TestInlineStaticfileTag:
         settings.DEBUG = True
         assert isinstance(inline_static_tags.inline_staticfile(
             'test.txt'), SafeText) is False
+
+    def test_hashed_filename(self, settings):
+        settings.STATICFILES_STORAGE = (
+            'django.contrib.staticfiles.storage.ManifestStaticFilesStorage')
+        management.call_command('collectstatic', '--noinput')
+        content = inline_static_tags.inline_staticfile('css/all.css')
+        assert 'img/noimage.64ffecea635f.jpg' in content
 
 
 class TestInlineJavascriptTag:

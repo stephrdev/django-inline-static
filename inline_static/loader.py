@@ -17,11 +17,17 @@ def load_staticfile(name, postprocessor=None, fail_silently=False):
         # Dont access file via staticfile storage in debug mode. Not available
         # without collectstatic management command.
         path = find(name)
-    elif staticfiles_storage.exists(name):
-        # get path if target file exists.
-        path = staticfiles_storage.path(name)
     else:
-        path = None
+        # Ensure that we include the hashed version of the static file if
+        # staticfiles storage uses the HashedFilesMixin.
+        if hasattr(staticfiles_storage, 'stored_name'):
+            name = staticfiles_storage.stored_name(name)
+
+        if staticfiles_storage.exists(name):
+            # get path if target file exists.
+            path = staticfiles_storage.path(name)
+        else:
+            path = None
 
     if not path:
         if not fail_silently:

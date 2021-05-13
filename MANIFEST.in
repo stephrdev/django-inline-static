@@ -1,3 +1,0 @@
-include LICENSE.rst
-recursive-exclude * .DS_Store
-recursive-exclude tests *

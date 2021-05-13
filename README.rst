@@ -5,16 +5,17 @@ django-inline-static
    :target: https://pypi.org/project/django-inline-static/
    :alt: Latest Version
 
-.. image:: https://codecov.io/gh/moccu/django-inline-static/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/moccu/django-inline-static
+.. image:: https://github.com/stephrdev/django-inline-static/workflows/Test/badge.svg?branch=master
+   :target: https://github.com/stephrdev/django-inline-static/actions?workflow=Test
+   :alt: CI Status
+
+.. image:: https://codecov.io/gh/stephrdev/django-inline-static/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/stephrdev/django-inline-static
    :alt: Coverage Status
 
 .. image:: https://readthedocs.org/projects/django-inline-static/badge/?version=latest
    :target: https://django-inline-static.readthedocs.io/en/stable/?badge=latest
    :alt: Documentation Status
-
-.. image:: https://travis-ci.org/moccu/django-inline-static.svg?branch=master
-   :target: https://travis-ci.org/moccu/django-inline-static
 
 
 *django-inline-static* provides template tags to inline css and javascript files in
@@ -39,25 +40,15 @@ django-inline-static supports Python 3 only and requires at least Django 1.11.
 Prepare for development
 -----------------------
 
-A Python 3.6 interpreter is required in addition to pipenv.
+A Python 3 interpreter is required in addition to poetry.
 
 .. code-block:: shell
 
-    $ pipenv install --python 3.6 --dev
-    $ pipenv shell
-    $ pip install -e .
+    $ poetry install
 
 
 Now you're ready to run the tests:
 
 .. code-block:: shell
 
-    $ pipenv run py.test
-
-
-Resources
----------
-
-* `Documentation <https://django-inline-static.readthedocs.org/>`_
-* `Bug Tracker <https://github.com/moccu/django-inline-static/issues>`_
-* `Code <https://github.com/moccu/django-inline-static/>`_
+    $ make tests

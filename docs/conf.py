@@ -5,8 +5,6 @@ import sys
 
 import os
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-
 year = datetime.datetime.now().strftime("%Y")
 
 sys.path.insert(0, os.path.abspath('..'))
@@ -28,7 +26,7 @@ extensions = [
 def linkcode_resolve(domain, info):
     """Link source code to GitHub."""
     project = 'django-inline-static'
-    github_user = 'moccu'
+    github_user = 'stephrdev'
     head = 'master'
 
     if domain != 'py' or not info['module']:
@@ -51,7 +49,7 @@ def linkcode_resolve(domain, info):
 
 
 intersphinx_mapping = {
-    'python': ('http://docs.python.org/3.6', None),
+    'python': ('http://docs.python.org/3.8', None),
     'django': ('https://docs.djangoproject.com/en/dev/',
                'https://docs.djangoproject.com/en/dev/_objects/'),
 }
@@ -63,7 +61,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 project = 'django-inline-static'
-copyright = '%s, Moccu GmbH & Co. KG' % year
+copyright = '%s, Stephan Jaekel' % year
 
 exclude_patterns = ['_build']
 
@@ -90,7 +88,4 @@ inheritance_node_attrs = dict(shape='rect', fontsize=14, fillcolor='gray90',
 
 inheritance_edge_attrs = dict(penwidth=0.75)
 
-if on_rtd:
-    html_theme = 'default'
-else:
-    html_theme = 'sphinx_rtd_theme'
+html_theme = 'default'

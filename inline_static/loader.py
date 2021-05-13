@@ -5,8 +5,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 
 def load_staticfile(name, postprocessor=None, fail_silently=False):
     if postprocessor:
-        cache_key = '{0}:{1}.{2}'.format(
-            name, postprocessor.__module__, postprocessor.__name__)
+        cache_key = '{0}:{1}.{2}'.format(name, postprocessor.__module__, postprocessor.__name__)
     else:
         cache_key = name
 
@@ -44,5 +43,6 @@ def load_staticfile(name, postprocessor=None, fail_silently=False):
         load_staticfile._cache[cache_key] = content
 
     return content
+
 
 load_staticfile._cache = {}

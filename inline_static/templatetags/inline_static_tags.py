@@ -16,8 +16,9 @@ def inline_staticfile(name):
 
 @register.simple_tag
 def inline_style(name):
-    return mark_safe(load_staticfile(
-        name, transform_css_urls, fail_silently=not settings.DEBUG))
+    return mark_safe(
+        load_staticfile(name, transform_css_urls, fail_silently=not settings.DEBUG)
+    )
 
 
 @register.simple_tag
